@@ -1,6 +1,8 @@
 // Set up MySQL connection.
 var mysql = require("mysql");
 
+//add JAWS 
+
 var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,

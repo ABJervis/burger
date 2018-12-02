@@ -6,7 +6,7 @@ var connection = require("../config/connection.js");
 // In order to write the query, we need 3 question marks.
 // The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
 // ["?", "?", "?"].toString() => "?,?,?";
-/*function printQuestionMarks(num) {
+function printQuestionMarks(num) {
   var arr = [];
 
   for (var i = 0; i < num; i++) {
@@ -25,12 +25,11 @@ function objToSql(ob) {
     var value = ob[key];
     // check to skip hidden properties
     if (Object.hasOwnProperty.call(ob, key)) {
-      // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
+      // if string with spaces, add quotations
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = "'" + value + "'";
       }
-      // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-      // e.g. {sleepy: true} => ["sleepy=true"]
+    
       arr.push(key + "=" + value);
     }
   }
@@ -51,6 +50,7 @@ var orm = {
     });
   },
   create: function(table, cols, vals, cb) {
+    console.log(table,cols,vals,cb);
     var queryString = "INSERT INTO " + table;
 
     queryString += " (";
@@ -72,6 +72,7 @@ var orm = {
   },
   // An example of objColVals would be {name: panther, sleepy: true}
   update: function(table, objColVals, condition, cb) {
+    console.log(table, objColVals,condition, cb);
     var queryString = "UPDATE " + table;
 
     queryString += " SET ";
@@ -103,6 +104,6 @@ var orm = {
   }
 };
 
-// Export the orm object for the model (cat.js).
-*/
+// Export the orm object for the model.
+
 module.exports = orm;
