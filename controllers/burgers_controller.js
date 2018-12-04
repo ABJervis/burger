@@ -43,6 +43,15 @@ router.post("/api/burger", function(req, res) {
       }
     });
   });
+
+  router.delete(condition, function(result){
+    if (result.affectedRows == 0){
+      return res.status(404).end();
+    }
+    else {
+      res.status(200).end();
+    }
+  })
 });
 
 

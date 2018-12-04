@@ -1,5 +1,5 @@
 // Import MySQL connection.
-var connection = require("../config/connection.js");
+var connection = require("../config/connection");
 
 // Helper function for SQL syntax.
 // Let's say we want to pass 3 values into the mySQL query.
@@ -72,7 +72,7 @@ var orm = {
   },
   // An example of objColVals would be {name: panther, sleepy: true}
   update: function(table, objColVals, condition, cb) {
-    console.log(table, objColVals,condition, cb);
+    
     var queryString = "UPDATE " + table;
 
     queryString += " SET ";
