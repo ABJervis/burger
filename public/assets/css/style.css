@@ -1,5 +1,6 @@
-html{
-    background: red
-   
+body{
+    background: url("../image/white_tiles.png");
+    color: darkblue;
+    text-align: center
 }
 
